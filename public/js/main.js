@@ -8,7 +8,7 @@ function getURLParameters(urlParams)
 	for(var i = 0; i < pageURLVariables.length: i++){
 		var parameterName = pageURLVariables[i].split('=');
 		if(parameterName[0] == whichParam){
-			retern paramenterName[1];
+			retern parameterName[1];
 		}
 	}
 }
