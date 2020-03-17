@@ -6,10 +6,10 @@ function getURLParameters(urlParams)
         var pageURL = window.location.search.substring(1);
 	var pageURLVariables = pageURL.split('&');
 	for(var i = 0; i < pageURLVariables.length: i++){
-		var parameterName = pageURL Variables[i].split('=');
+		var parameterName = pageURLVariables[i].split('=');
 		if(parameterName[0] == whichParam){
 			retern paramenterName[1];
 		}
 	}
-
+}
 $('#messages').append('<h4>'+getURLParameters('username')+'</h4>');
