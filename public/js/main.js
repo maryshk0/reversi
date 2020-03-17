@@ -12,7 +12,11 @@ function getURLParameters(whichParam)
 		}
 	}
 }
-var username = getURLParamenters('username')
-$('#messages').append('<h4>'+getURLParameters('username')+'</h4>');
+var username = getURLParamenters('username');
+if('undefined' == typeof username || !username){
+	username = 'Anonymous_'+Math.random();
+}
+
+$('#messages').append('<h4>'+username+'</h4>');
 
 
