@@ -1,11 +1,11 @@
 /* functions for general use */
 
 /* This function returns the value associated with 'whichParam' on the URL */
-function getURLParameters(urlParams)
+function getURLParameters(whichParam)
 {
         var pageURL = window.location.search.substring(1);
 	var pageURLVariables = pageURL.split('&');
-	for(var i = 0; i < pageURLVariables.length: i++){
+	for(var i = 0; i < pageURLVariables.length; i++){
 		var parameterName = pageURLVariables[i].split('=');
 		if(parameterName[0] == whichParam){
 			retern parameterName[1];
@@ -13,3 +13,5 @@ function getURLParameters(urlParams)
 	}
 }
 $('#messages').append('<h4>'+getURLParameters('username')+'</h4>');
+
+
