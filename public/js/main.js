@@ -40,7 +40,7 @@ socket.on('send_message_response',function(payload){
 		alert(payload.message);
 		return;
 	}
-	$('#messages').append('<p><b>'+payload.username+' says:</b> '+payload.message+'</p>');
+	$('#messages').append('<p><b>'+payload.username+' says: </b>'+payload.message+'</p>');
 });
 
 
@@ -64,5 +64,7 @@ $(function(){
 
 	console.log('*** Client Log Message: \'join_room\' payload: '+JSON.stringify(payload));
 	socket.emit('join_room',payload);
+	socket.emit('send_message',payload);
+
 });
 
