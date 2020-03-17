@@ -1,6 +1,6 @@
 /* functions for general use */
 
-/* This function returns the value associated with 'whichParam' on the URL */
+/* This function returns value associated with 'whichParam' on the URL */
 function getURLParameters(whichParam){
         var pageURL = window.location.search.substring(1);
 	var pageURLVariables = pageURL.split('&');
