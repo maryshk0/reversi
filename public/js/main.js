@@ -12,6 +12,7 @@ function getURLParameters(whichParam)
 		}
 	}
 }
+var username = getURLParamenters('username')
 $('#messages').append('<h4>'+getURLParameters('username')+'</h4>');
 
 
