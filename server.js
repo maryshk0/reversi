@@ -38,9 +38,11 @@ console.log('The server is running');
 
 /* A registry of socket_ids and player information */
 
+var players =[];
+
 var io = require('socket.io').listen(app);
 
-io.sockets.on('connection', function (socket) {
+io.sockets.on('connection', function(socket) {
 	log('Client connection by '+socket.id);
 
 	function log(){
@@ -72,8 +74,8 @@ io.sockets.on('connection', function (socket) {
 	 *       'message' :failure message
 	 *   }
 	 */
-	socket.on('join_room',function(payload){
-		log('\'join_room\' command'+JSON.stringify(payload));
+	socket.on('join_room',function(payload) {
+		log('\'join room\' command'+JSON.stringify(payload));
 
 		/* Check that the client sent a payload */
 		if(('undefined' ===typeof payload) || !payload){
