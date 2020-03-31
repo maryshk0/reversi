@@ -135,7 +135,7 @@ io.sockets.on('connection', function(socket) {
 
 		io.sockets.in(room).emit('join_room_response', success_data);
 
-		for(var sockets_in_room in roomObject.sockets){
+		for(var socket_in_room in roomObject.sockets){
 			var success_data = {
 			              result: 'success',
 			              room: room,
