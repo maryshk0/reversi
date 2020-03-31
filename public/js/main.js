@@ -114,6 +114,14 @@ socket.on('player_disconected',function(payload){
 	newNode.slideDown(1000);
 });
 
+socket.on('send_message_response',function(payload){
+	if(payload.result == 'fail'){
+		alert(payload.message);
+		return;
+	}
+	$('#messages').append('<p><b>'+payload.username+' says:</b> '+payload.message+'</p>');
+
+});
 
 
 
@@ -143,7 +151,6 @@ $(function(){
 
 	console.log('*** Client Log Message: \'join_room\' payload: '+JSON.stringify(payload));
 	socket.emit('join_room',payload);
-	socket.emit('send_message',payload);
 
 });
 
