@@ -96,7 +96,7 @@ socket.on('join_room_response',function(payload){
 });
 
 /* What to do when the server says that someone has left a room*/
-socket.on('player_disconected',function(payload)){
+socket.on('player_disconected',function(payload){
 	if(payload.result == 'fail'){
 		alert(payload.message);
 		return;
