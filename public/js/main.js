@@ -69,7 +69,7 @@ socket.on('join_room_response',function(payload){
 		nodeB.addClass('col-9 text-right');
 		nodeB.append('<h4>'+payload.username+'</h4>');
 
-		nodeC.addClass('cold-3 text-left');
+		nodeC.addClass('col-3 text-left');
 		var buttonC = makeInviteButton();
 		nodeC.append(buttonC);
 
@@ -82,7 +82,7 @@ socket.on('join_room_response',function(payload){
 		nodeC.slideDown(1000);
 	}
 	else{
-		var buttonC = makeInviteButton();
+		var buttonC =makeInviteButton();
 		$('.socket_'+payload.socket_id+' button').replaceWith(buttonC);
 		dom_elements.slidedown(1000);
 	}
@@ -103,7 +103,7 @@ socket.on('player_disconected',function(payload){
 	}
 
 	/* If we are being notified that we left the room, then ignore it */
-	if(payload.socket_id == socket.id){
+	if(payload.socket.id == socket.id){
 		return;
 	}
 
@@ -137,7 +137,7 @@ function send_message(){
 }
 
 
-function makeInvideButton(){
+function makeInviteButton(){
 
 	var newHTML = '<button type=\'button\' class=\'btn-outline-primary\'>Invite</button>';
 	var newNode = $(newHTML);
