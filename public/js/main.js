@@ -30,15 +30,6 @@ socket.on('log',function(array){
 	console.log.apply(console,array);
 });
 
-socket.on('join_room_response',function(payload){
-	if(payload.result == 'fail'){
-		alert(payload.message);
-		return;
-	}
-	$('#messages').append('<p>New user joined the room: '+payload.username+'</p>');
-});
-
-
 /* What to do when the server responds that someone joined a room */
 socket.on('join_room_response',function(payload){
 	if(payload.result == 'fail'){
@@ -82,9 +73,9 @@ socket.on('join_room_response',function(payload){
 		nodeC.slideDown(1000);
 	}
 	else{
-		var buttonC =makeInviteButton();
+		var buttonC = makeInviteButton();
 		$('.socket_'+payload.socket_id+' button').replaceWith(buttonC);
-		dom_elements.slidedown(1000);
+		dom_elements.slideDown(1000);
 	}
 
         /* Manage the message that a new player has joined */
