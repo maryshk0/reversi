@@ -87,14 +87,14 @@ socket.on('join_room_response',function(payload){
 });
 
 /* What to do when the server says that someone has left a room*/
-socket.on('player_disconected',function(payload){
+socket.on('player_disconnected',function(payload){
 	if(payload.result == 'fail'){
 		alert(payload.message);
 		return;
 	}
 
 	/* If we are being notified that we left the room, then ignore it */
-	if(payload.socket.id == socket.id){
+	if(payload.socket_id == socket.id){
 		return;
 	}
 
@@ -102,7 +102,7 @@ socket.on('player_disconected',function(payload){
 	var dom_elements = $('.socket_'+payload.socket_id);
 
 	/* If something exists */
-	if(dom_elements.length != 0){
+	if(dom_elements.length == 0){
 		dom_elements.slideUp(1000);	
 	}
 
