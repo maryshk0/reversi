@@ -1,3 +1,4 @@
+
 /*********************************************/
 /*          Set up the static file server    */
 /* Include the static file webserver library */
@@ -151,7 +152,7 @@ io.sockets.on('connection', function (socket) {
 		    log('Vlient disconnected'+JSON.stringify(players[socket.id]));
 		    if('undefined' !== typeof players[socket.id] && players[socket.id]){
 			    var username = players[socket.id].username;
-			    var room = players[socket.id].room
+			    var room = players[socket.id].room;
 			    var payload = {
 				    	    username: username,
 				            socket_id: socket.id
