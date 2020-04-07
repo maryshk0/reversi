@@ -322,18 +322,17 @@ io.sockets.on('connection', function(socket) {
 			var error_message = 'invite requested a user that was not in the room, command aborted';
 			log(error_message);
 			socket.emit('invite_response',  {
-			                  	     result: 'fail',
+			                  	      result: 'fail',
 			                 	      message: error_message
 			                  	     });
 			return;
 		}
 	
 		/* If everything is okay respond to the invitar that it was successful */
-	
 		success_data = {
-		       	    result: 'success',
-		      	     socket_id: requested_user
-		       	    };
+		       	        result: 'success',
+		        	socket_id: requested_user
+				};
 		socket.emit('invite_response', success_data);
 
 		/* Tell the invitee that they have been invited */

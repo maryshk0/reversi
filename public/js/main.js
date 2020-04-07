@@ -239,6 +239,7 @@ function makeInviteButton(socket_id){
 
 function makeInvitedButton(socket_id){
 	var newHTML = '<button type=\'button\' class=\'btn btn-primary\'>Invited</button>';
+
 	var newNode = $(newHTML);
 	newNode.click(function(){
 		uninvite(socket_id);
