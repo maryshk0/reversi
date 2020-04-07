@@ -330,17 +330,17 @@ io.sockets.on('connection', function(socket) {
 	
 		/* If everything is okay respond to the invitar that it was successful */
 	
-		var success_data = {
+		success_data = {
 		       	    result: 'success',
 		      	     socket_id: requested_user
 		       	    };
 		socket.emit('invite_response', success_data);
 
 		/* Tell the invitee that they have been invited */
-		var success_data = {
-		       	    result: 'success',
-		        	   socket_id: socket.id
-		        	   };
+		success_data = {
+		       	        result: 'success',
+		        	socket_id: socket.id
+				};
 		socket.to(requested_user).emit('invited', success_data);
 
 		log('invite successful');
@@ -428,13 +428,13 @@ io.sockets.on('connection', function(socket) {
 		/* If everything is okay respond to the uninviter that it was successful */
 	
 		var success_data = {
-		       	    result: 'success',
+		       	     result: 'success',
 		      	     socket_id: requested_user
 		       	    };
 		socket.emit('uninvite_response', success_data);
 
-		/* Tell the uninvite that they have been invited */
-		var success_data = {
+		/* Tell the uninvite that they have been uninvited */
+		success_data = {
 		       	           result: 'success',
 		        	   socket_id: socket.id
 		        	   };
