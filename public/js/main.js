@@ -123,7 +123,7 @@ function invite(who){
 	payload.requested_user = who;
 
 	console.log('*** Client Log Message: \'invite\' payload: ' +JSON.stringify(payload));
-	socket.emit('invite',payload);
+	socket.emit('invite', payload);
 }
 
 /* Handle a responce after sending an invite to the server */
