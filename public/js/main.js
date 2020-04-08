@@ -127,7 +127,10 @@ function invite(who){
 }
 
 /* Handle a responce after sending an invite to the server */
-socket.on('invite_responce',function(payload){
+socket.on('invite_response',function(payload){
+	console.log('*** Client Log Message: WE HAVE INVITED SOMEONE');
+
+
 	if(payload.result == 'fail'){
 		alert(payload.message);
 		return;
@@ -138,6 +141,8 @@ socket.on('invite_responce',function(payload){
 
 /* Handle a notification that we have been invited */
 socket.on('invited',function(payload){
+	console.log('*** Client Log Message: WE HAVE BEEN INVITED');
+
 	if(payload.result == 'fail'){
         	alert(payload.message);
         	return;
@@ -157,7 +162,10 @@ function uninvite(who){
 }
 
 /* Handle a response after sending an uninvite message to the server */
-socket.on('uninvite_responce',function(payload){
+socket.on('uninvite_response',function(payload){
+	console.log('*** Client Log Message: WE HAVE UNINVITED SOMEONE');
+
+
 	if(payload.result == 'fail'){
 		alert(payload.message);
 		return;
@@ -168,6 +176,8 @@ socket.on('uninvite_responce',function(payload){
 
 /* Handle a notification that we have been uninvited */
 socket.on('uninvited',function(payload){
+	console.log('*** Client Log Message: WE HAVE BEEN UNINVITED');
+
 	if(payload.result == 'fail'){
 		alert(payload.message);
 		return;
@@ -228,6 +238,8 @@ socket.on('send_message_response',function(payload){
 
 
 function makeInviteButton(socket_id){
+	console.log('*** Client Log Message: Making INVITE button');
+
  
 	var newHTML = '<button type=\'button\' class=\'btn btn-outline-primary\'>Invite Now</button>';
 	var newNode = $(newHTML);
@@ -238,6 +250,8 @@ function makeInviteButton(socket_id){
 }
 
 function makeInvitedButton(socket_id){
+	console.log('*** Client Log Message: Making INVITED button');
+
 	var newHTML = '<button type=\'button\' class=\'btn btn-primary\'>Invited</button>';
 
 	var newNode = $(newHTML);
@@ -249,6 +263,8 @@ function makeInvitedButton(socket_id){
 }
 
 function makePlayButton(socket_id){
+	console.log('*** Client Log Message: Making PLAY button');
+
 	var newHTML = '<button type=\'button\' class=\'btn btn-success\'>Play</button>';
 	var newNode = $(newHTML);
 	newNode.click(function(){
