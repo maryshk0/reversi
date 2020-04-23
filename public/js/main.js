@@ -330,11 +330,9 @@ socket.on('game_update',function(payload){
 
 	/* Update my color */
 	if(socket.id == payload.game.player_white.socket){
-		console.log('MAKING IT WHITE');
 		my_color = 'white';
 	}
 	else if(socket.id == payload.game.player_black.socket){
-		console.log('MAKING IT BLACK');
 		my_color = 'black';
 	}
 	else{
@@ -343,8 +341,22 @@ socket.on('game_update',function(payload){
 		window.location.href = 'lobby.html?username='+username;
 		return;
 	}
-	$('#my_color').html('<h3 id="my_color">I am '+my_color+'</h3>');
-	$('#my_color').append('<h4>It is '+payload.game.whose_turn+'\'s turn. Elapsed time <span id="elapsed"></span></h4>');
+	if(my_color === 'white'){
+		$('#my_color').html('<h3 id="my_color">I am pink</h3>');
+
+
+	}
+	else{
+		$('#my_color').html('<h3 id="my_color">I am '+my_color+'</h3>');
+
+	}
+	if(payload.game.whose_turn === 'white'){
+		$('#my_color').append('<h4>It is pink\'s turn. Elapsed time <span id="elapsed"></span></h4>');
+
+	}
+	else{
+		$('#my_color').append('<h4>It is '+payload.game.whose_turn+'\'s turn. Elapsed time <span id="elapsed"></span></h4>');
+	}
 
 	clearInterval(interval_timer);
 	interval_timer = setInterval(function(last_time){
@@ -460,9 +472,18 @@ socket.on('game_over',function(payload){
 		console.log(payload.message);
 		return;
 	}
+	$('#myModal').on('shown.bs.modal', function () {
+		$('#myInput').trigger('focus')
+	})
 	/* Jump to a new page */
-
-	$('#game_over').html('<h1>Game Over</h1><h2>'+payload.who_won+' won!</h2>');
+	if(payload.who_won === 'white'){
+		$('#game_over').html('<h1>Game Over</h1><h2>pink won!</h2>');
+	}
+	else{
+		$('#game_over').html('<h1>Game Over</h1><h2>'+payload.who_won+' won!</h2>');
+	}
 	$('#game_over').append('<a href ="lobby.html?username='+username+'" class= "btn btn-success btn-lg active" role="button" aria-pressed="true">Return to the lobby</a>');
+
+
 });
 

@@ -10,10 +10,16 @@
 	  background-image: url("assets/images/green.png");
   }
 </style>
+    <script>
+	    function submitForm(){
+		    var username = $('#username').val();
+		    window.location.href = 'lobby.html?username='+username;
+		}
+    </script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>Reversi</title>
   </head>
   <body>
     <div class="container-fluid text-center">
@@ -22,11 +28,28 @@
 		      <img class="img-fluid" src="assets/images/top-splash.png" alt="Reversi logo" />
 	      </div>
       </div>
+      
 
       <div class="row">
-	      <div class="col">
-		      <a href="name.html" class="btn btn-lg btn-secondary">Let's Play</a>
+	       <div class='col'>
+		       <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+			       Play now
+    		      </button>
+		     
+			<div class="collapse" id="collapseExample">
+  						<div class="card card-body">
+							 <form onsubmit='submitForm(); return false;' class='form-inline'>
+			      					<div class='form-row align-items-center'>
+				   				 	  <label for='username' class='col-form-label sr-only'>Enter your username</label>
+				     					 <input class='form-control' type='text' value='' id='username' placeholder='Enter your user name'/>	
+								</div>
+							<button type='submit' class='btn btn-default btn-primary'>Let's Play</button>
+
+						</div>			  
+
+			</div>
 	      </div>
+
       </div>
 
       <div class="row">
